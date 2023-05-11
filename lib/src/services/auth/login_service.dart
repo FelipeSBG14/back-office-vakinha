@@ -1,3 +1,3 @@
 abstract class LoginService {
-  Future<void> execute(String emial, String password);
+  Future<void> execute(String email, String password);
 }

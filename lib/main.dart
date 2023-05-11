@@ -1,4 +1,4 @@
-import 'package:delivery_backoffice_dw10/src/core/env/env.dart';
+import 'src/core/env/env.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import './src/app_module.dart';
