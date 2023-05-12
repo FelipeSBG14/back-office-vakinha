@@ -63,12 +63,62 @@ mixin _$PaymentTypeController on PaymentTypeControllerBase, Store {
     });
   }
 
+  late final _$_paymentTypeSelectedAtom = Atom(
+      name: 'PaymentTypeControllerBase._paymentTypeSelected', context: context);
+
+  PaymentTypeModel? get paymentTypeSelected {
+    _$_paymentTypeSelectedAtom.reportRead();
+    return super._paymentTypeSelected;
+  }
+
+  @override
+  PaymentTypeModel? get _paymentTypeSelected => paymentTypeSelected;
+
+  @override
+  set _paymentTypeSelected(PaymentTypeModel? value) {
+    _$_paymentTypeSelectedAtom.reportWrite(value, super._paymentTypeSelected,
+        () {
+      super._paymentTypeSelected = value;
+    });
+  }
+
+  late final _$_filterEnabledAtom =
+      Atom(name: 'PaymentTypeControllerBase._filterEnabled', context: context);
+
+  bool? get filterEnabled {
+    _$_filterEnabledAtom.reportRead();
+    return super._filterEnabled;
+  }
+
+  @override
+  bool? get _filterEnabled => filterEnabled;
+
+  @override
+  set _filterEnabled(bool? value) {
+    _$_filterEnabledAtom.reportWrite(value, super._filterEnabled, () {
+      super._filterEnabled = value;
+    });
+  }
+
   late final _$loadPaymentsAsyncAction =
       AsyncAction('PaymentTypeControllerBase.loadPayments', context: context);
 
   @override
   Future<void> loadPayments() {
     return _$loadPaymentsAsyncAction.run(() => super.loadPayments());
+  }
+
+  late final _$savePaymentAsyncAction =
+      AsyncAction('PaymentTypeControllerBase.savePayment', context: context);
+
+  @override
+  Future<void> savePayment(
+      {int? id,
+      required String name,
+      required String acronym,
+      required bool enabled}) {
+    return _$savePaymentAsyncAction.run(() => super
+        .savePayment(id: id, name: name, acronym: acronym, enabled: enabled));
   }
 
   @override
