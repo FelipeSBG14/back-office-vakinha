@@ -10,7 +10,7 @@ class ProductsModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (context, args) => ProductsPage(),
+          child: (context, args) => const ProductsPage(),
         ),
         // ChildRoute('/detail', child: (context, args) => ProductsPage(),),
       ];

@@ -19,6 +19,7 @@ class AppModule extends Module {
           child: (context, args) => const BaseLayout(
             body: RouterOutlet(),
           ),
+          transition: TransitionType.noTransition,
           children: [
             ModuleRoute(
               '/payment-type',
