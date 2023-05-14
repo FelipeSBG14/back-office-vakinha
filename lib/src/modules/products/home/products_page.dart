@@ -20,11 +20,11 @@ class ProductsPage extends StatefulWidget {
 class _ProductsPageState extends State<ProductsPage> with Loader, Messages {
   final controller = Modular.get<ProductsController>();
   late final ReactionDisposer statusDisposer;
-  final debouncer = Debouncer(milisencods: 10000);
+  final debouncer = Debouncer(milisencods: 6000);
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       statusDisposer = reaction((_) => controller.status, (status) {
         switch (status) {
           case ProductStateStatus.inital:
