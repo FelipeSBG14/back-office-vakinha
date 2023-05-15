@@ -1,6 +1,6 @@
 enum Menu {
   paymentType(
-    'payment-type/',
+    '/payment-type/',
     'payment_type_ico.png',
     'payment_type_ico_selected.png',
     'Formas de Pagamento',
