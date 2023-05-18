@@ -8,12 +8,12 @@ class MenuButton extends StatelessWidget {
   final Menu? menuSelected;
   final ValueChanged<Menu> onPressed;
 
-  const MenuButton(
-      {Key? key,
-      required this.menu,
-      this.menuSelected,
-      required this.onPressed})
-      : super(key: key);
+  const MenuButton({
+    Key? key,
+    required this.menu,
+    this.menuSelected,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class MenuButton extends StatelessWidget {
                 decoration: isSelected
                     ? BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFFFFF5E2),
+                        color: const Color(0xFFFFF5E2),
                       )
                     : null,
                 child: Row(

@@ -26,6 +26,9 @@ abstract class LoginControllerBase with Store {
   @readonly
   String? _errorMessage;
 
+  @observable
+  bool showPassword = false;
+
   LoginControllerBase(this._loginService);
 
   @action
@@ -43,4 +46,7 @@ abstract class LoginControllerBase with Store {
       _loginStatus = LoginStateStatus.error;
     }
   }
+
+  @action
+  bool showOrHidePassword() => showPassword = !showPassword;
 }

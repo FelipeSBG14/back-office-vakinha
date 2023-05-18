@@ -1,8 +1,5 @@
 import 'dart:developer';
-
-import 'package:delivery_backoffice_dw10/src/modules/payment_type/payment_type_controller.dart';
 import 'package:mobx/mobx.dart';
-
 import '../../models/payment_type_model.dart';
 import '../../repositories/payment_type/payment_type_repository.dart';
 part 'payment_type_controller.g.dart';

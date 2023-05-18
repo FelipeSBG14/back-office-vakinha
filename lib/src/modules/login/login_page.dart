@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:validatorless/validatorless.dart';
@@ -141,14 +142,28 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          controller: passwordEC,
-                          obscureText: true,
-                          onFieldSubmitted: (_) => _formSubmit(),
-                          decoration: const InputDecoration(
-                            labelText: 'Senha',
-                          ),
-                          validator: Validatorless.required('Digite sua senha'),
+                        Observer(
+                          builder: (_) {
+                            return TextFormField(
+                              controller: passwordEC,
+                              obscureText: !controller.showPassword,
+                              onFieldSubmitted: (_) => _formSubmit(),
+                              decoration: InputDecoration(
+                                labelText: 'Senha',
+                                suffixIcon: IconButton(
+                                  onPressed: () =>
+                                      controller.showOrHidePassword(),
+                                  icon: Icon(
+                                    controller.showPassword
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                  ),
+                                ),
+                              ),
+                              validator:
+                                  Validatorless.required('Digite sua senha'),
+                            );
+                          },
                         ),
                         const SizedBox(
                           height: 40,

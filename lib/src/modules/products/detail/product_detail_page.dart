@@ -143,23 +143,24 @@ class _ProductsDetailPageState extends State<ProductsDetailPage>
                       Container(
                         margin: const EdgeInsets.all(10),
                         child: TextButton(
-                            onPressed: () {
-                              UploadHtmlHelper().startUpload(
-                                controller.uploadImageProduct,
+                          onPressed: () {
+                            UploadHtmlHelper().startUpload(
+                              controller.uploadImageProduct,
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.white.withOpacity(
+                              0.9,
+                            ),
+                          ),
+                          child: Observer(
+                            builder: (_) {
+                              return Text(
+                                '${controller.imagePath == null ? 'Adicionar' : 'Alterar'} Foto',
                               );
                             },
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white.withOpacity(
-                                0.9,
-                              ),
-                            ),
-                            child: Observer(
-                              builder: (_) {
-                                return Text(
-                                  '${controller.imagePath == null ? 'Adicionar' : 'Alterar'} Foto',
-                                );
-                              },
-                            )),
+                          ),
+                        ),
                       )
                     ],
                   ),
@@ -289,7 +290,8 @@ class _ProductsDetailPageState extends State<ProductsDetailPage>
                             if (valid) {
                               if (controller.imagePath == null) {
                                 showWarning(
-                                    'Imagem obrigatória, por favor clique em adicionar foto !');
+                                  'Imagem obrigatória, por favor clique em adicionar foto !',
+                                );
                                 return;
                               } else {
                                 controller.save(

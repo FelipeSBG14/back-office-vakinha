@@ -10,9 +10,11 @@ class PaymentTypeModal extends StatefulWidget {
   final PaymentTypeController controller;
   final PaymentTypeModel? model;
 
-  const PaymentTypeModal(
-      {Key? key, required this.model, required this.controller})
-      : super(key: key);
+  const PaymentTypeModal({
+    Key? key,
+    required this.model,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   State<PaymentTypeModal> createState() => _PaymentTypeModalState();

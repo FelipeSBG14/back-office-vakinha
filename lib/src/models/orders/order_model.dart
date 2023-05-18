@@ -12,7 +12,7 @@ class OrderModel {
   final List<OrderProductModel> orderProducts;
   final int userId;
   final String address;
-  final String cpf;
+  final int cpf;
   final int paymentTypeId;
   OrderModel({
     required this.id,
@@ -50,7 +50,7 @@ class OrderModel {
       ),
       userId: map['user_id'] as int,
       address: map['address'] as String,
-      cpf: map['cpf'] as String,
+      cpf: map['CPF'] as int,
       paymentTypeId: (map['payment_method_id'] ?? 0) as int,
     );
   }

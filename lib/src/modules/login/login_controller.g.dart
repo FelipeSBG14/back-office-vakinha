@@ -45,6 +45,22 @@ mixin _$LoginController on LoginControllerBase, Store {
     });
   }
 
+  late final _$showPasswordAtom =
+      Atom(name: 'LoginControllerBase.showPassword', context: context);
+
+  @override
+  bool get showPassword {
+    _$showPasswordAtom.reportRead();
+    return super.showPassword;
+  }
+
+  @override
+  set showPassword(bool value) {
+    _$showPasswordAtom.reportWrite(value, super.showPassword, () {
+      super.showPassword = value;
+    });
+  }
+
   late final _$loginAsyncAction =
       AsyncAction('LoginControllerBase.login', context: context);
 
@@ -53,10 +69,24 @@ mixin _$LoginController on LoginControllerBase, Store {
     return _$loginAsyncAction.run(() => super.login(email, password));
   }
 
+  late final _$LoginControllerBaseActionController =
+      ActionController(name: 'LoginControllerBase', context: context);
+
+  @override
+  bool showOrHidePassword() {
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.showOrHidePassword');
+    try {
+      return super.showOrHidePassword();
+    } finally {
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-
+showPassword: ${showPassword}
     ''';
   }
 }

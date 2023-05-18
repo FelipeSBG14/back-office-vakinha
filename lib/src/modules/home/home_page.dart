@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
               autovalidateMode: AutovalidateMode.always,
               child: TextFormField(
                 decoration: const InputDecoration(label: Text('Login')),
-                validator: (String) => 'Erro',
+                validator: (string) => 'Erro',
               ),
             ),
           ),
