@@ -17,6 +17,7 @@ class AppWidget extends StatelessWidget {
 
     Modular.setNavigatorKey(_navigatorKey);
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Application Name',
       theme: ThemeConfig.theme,
       routeInformationParser: Modular.routeInformationParser,

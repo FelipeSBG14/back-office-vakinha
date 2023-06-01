@@ -11,7 +11,7 @@ class Debouncer {
   void call(VoidCallback callback) {
     _timer?.cancel();
     _timer = Timer(
-      Duration(microseconds: milisencods),
+      Duration(milliseconds: milisencods),
       callback,
     );
   }
